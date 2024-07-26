@@ -1,0 +1,112 @@
+# Project definitions (do not edit)
+Task: LarvalZebrafishModel
+scorer: KJ
+date: Jul17
+multianimalproject: false
+identity:
+
+
+# Project path (change when moving around)
+project_path: /Users/Krishi/Desktop/LarvalZebrafishModel-KJ-2024-07-17
+
+
+# Default DeepLabCut engine to use for shuffle creation (either pytorch or tensorflow)
+engine: pytorch
+
+
+# Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  C:\Users\henpe\Desktop\LarvalZebrafishModel-KJ-2024-07-17\videos\IMG_0166.mp4:
+    crop: 0, 1920, 0, 1080
+bodyparts:
+- head
+- torso
+- left_eye_front
+- left_eye_back
+- right_eye_front
+- right_eye_back
+- tail_proximal
+- tail_center_proximal
+- tail_center
+- tail_center_distal
+- tail_distal
+
+
+# Fraction of video to start/stop when extracting frames for labeling/refinement
+
+
+# Fraction of video to start/stop when extracting frames for labeling/refinement
+
+
+# Fraction of video to start/stop when extracting frames for labeling/refinement
+
+
+# Fraction of video to start/stop when extracting frames for labeling/refinement
+
+
+# Fraction of video to start/stop when extracting frames for labeling/refinement
+start: 0
+stop: 1
+numframes2pick: 40
+
+
+# Plotting configuration
+skeleton:
+- - tail_center_distal
+  - tail_distal
+- - head
+  - right_eye_front
+- - torso
+  - right_eye_back
+- - left_eye_front
+  - left_eye_back
+- - tail_proximal
+  - tail_center_proximal
+- - right_eye_front
+  - right_eye_back
+- - tail_center
+  - tail_center_distal
+- - head
+  - left_eye_front
+- - torso
+  - tail_proximal
+- - torso
+  - left_eye_back
+- - tail_center_proximal
+  - tail_center
+skeleton_color: white
+pcutoff: 0.2
+dotsize: 3
+alphavalue: 0.5
+colormap: jet
+
+
+# Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+detector_snapshotindex: -1
+batch_size: 8
+
+
+# Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+#if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+
+# Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
+
+
+# Conversion tables to fine-tune SuperAnimal weights
+SuperAnimalConversionTables:
