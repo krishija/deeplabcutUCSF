@@ -13,6 +13,6 @@ Use SSH to log into the Wynton HPC cluster.
 
 To use DeepLabCut, you'll need to set up a Conda environment. However, since module loading and conda environment activation are only possible on compute nodes, you should perform these actions within a job script.
 
-```mkdir -p ~/DeepLabCut_jobs
-```cd ~/DeepLabCut_jobs
-```nano setup_env.sh
+`mkdir -p ~/DeepLabCut_jobs
+cd ~/DeepLabCut_jobs
+nano setup_env.sh`
