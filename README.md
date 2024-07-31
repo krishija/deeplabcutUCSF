@@ -37,3 +37,10 @@ source activate dlc_env
 # Install DeepLabCut
 pip install deeplabcut
 ```
+Make the script executable. 
+
+`chmod ugo+x setup_env.sh`
+
+Submit the job. 
+
+`qsub setup_env.sh`
