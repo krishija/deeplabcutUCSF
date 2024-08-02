@@ -1,7 +1,7 @@
 # deeplabcutUCSF
 This is a protocol guide for using deeplabcut on zebrafish data. 
 
-**Using DeepLabCut on HPC Cluster**
+**Installing DeepLabCut on HPC Cluster**
 
 First, you need to transfer your local DeepLabCut project folder to the cluster. You can use scp for this purpose.
 
@@ -44,3 +44,53 @@ Make the script executable.
 Submit the job. 
 
 `qsub setup_env.sh`
+
+
+**Using DeepLabCut on HPC Cluster**
+
+The below steps will assume the user has already used the GUI to get to the training portion of the DeepLabCut procedure on their own machine (meaning they have already created a training dataset). For steps on how to do so, refer to the DeepLabCut Github page. 
+
+Create a new job script for training. 
+
+`nano run_training sh`
+
+Edit the script. 
+
+```
+#!/bin/bash
+#$ -S /bin/bash
+#$ -cwd
+#$ -l h_rt=24:00:00  # Adjust runtime as needed
+#$ -N DLC_Training
+#$ -pe smp 4  # Request 4 cores
+
+# Load necessary modules
+module load python/3.8
+module load cuda/11.3
+
+# Activate the conda environment
+source activate dlc_env
+
+# Navigate to the project directory
+cd /path/to/your/destination/folder/DeepLabCut_project
+
+# Run the training
+python -m deeplabcut.train_network config.yaml
+
+```
+
+Make the script executable. 
+
+`chmod ugo+x run_training.sh`
+
+Submit the job. 
+
+`qsub run_training.sh`
+
+Monitor the job progress. 
+
+`qstat`
+
+Retrieve the results. 
+
+`scp -r your_username@log1.wynton.ucsf.edu:/path/to/your/destination/folder/DeepLabCut_project /path/to/your/local/machine`
