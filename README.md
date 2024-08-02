@@ -72,10 +72,10 @@ module load cuda/11.3
 source activate dlc_env
 
 # Navigate to the project directory
-cd /path/to/your/destination/folder/DeepLabCut_project
+cd '/path/to/your/destination/folder/DeepLabCut_project'
 
 # Run the training
-python -m deeplabcut.train_network config.yaml
+python -m deeplabcut.train_network 'path_to_config'
 
 ```
 
